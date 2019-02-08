@@ -1,0 +1,12 @@
+for i in $@
+do 
+  if [[ $i%2 -eq 0 ]]
+  then
+    echo "$i is even"
+    y=$i
+    
+  fi
+done
+echo "there are $y even numbers."
+
+

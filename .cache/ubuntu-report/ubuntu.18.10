@@ -1,0 +1,89 @@
+{
+  "Version": "18.10",
+  "OEM": {
+    "Vendor": "innotek GmbH",
+    "Product": "VirtualBox"
+  },
+  "BIOS": {
+    "Vendor": "innotek GmbH",
+    "Version": "VirtualBox"
+  },
+  "CPU": {
+    "OpMode": "32-bit, 64-bit",
+    "CPUs": "1",
+    "Threads": "1",
+    "Cores": "1",
+    "Sockets": "1",
+    "Vendor": "GenuineIntel",
+    "Family": "6",
+    "Model": "42",
+    "Stepping": "7",
+    "Name": "Intel(R) Core(TM) i3-2120 CPU @ 3.30GHz",
+    "Hypervisor": "KVM",
+    "VirtualizationType": "full"
+  },
+  "Arch": "amd64",
+  "GPU": [
+    {
+      "Vendor": "15ad",
+      "Model": "0405"
+    }
+  ],
+  "RAM": 5.1,
+  "Disks": [
+    536.9
+  ],
+  "Partitions": [
+    226.6,
+    0.9,
+    277.7
+  ],
+  "Screens": [
+    {
+      "Size": "0mmx0mm",
+      "Resolution": "800x600",
+      "Frequency": "60.00"
+    }
+  ],
+  "Autologin": false,
+  "LivePatch": false,
+  "Session": {
+    "DE": "ubuntu:GNOME",
+    "Name": "ubuntu",
+    "Type": "x11"
+  },
+  "Language": "en_US",
+  "Timezone": "America/New_York",
+  "Install": {
+    "Media": "Ubuntu 18.10 \"Cosmic Cuttlefish\" - Release amd64 (20181017.3)",
+    "Type": "GTK",
+    "OEM": false,
+    "PartitionMethod": "manual",
+    "DownloadUpdates": false,
+    "Language": "en",
+    "Minimal": false,
+    "RestrictedAddons": true,
+    "Stages": {
+      "0": "language",
+      "2": "language",
+      "14": "console_setup",
+      "19": "prepare",
+      "37": "partman",
+      "40": "partman",
+      "41": "partman",
+      "44": "partman",
+      "60": "partman",
+      "61": "partman",
+      "71": "partman",
+      "83": "partman",
+      "84": "partman",
+      "90": "partman",
+      "92": "partman",
+      "94": "start_install",
+      "95": "timezone",
+      "98": "usersetup",
+      "106": "user_done",
+      "298": "done"
+    }
+  }
+}

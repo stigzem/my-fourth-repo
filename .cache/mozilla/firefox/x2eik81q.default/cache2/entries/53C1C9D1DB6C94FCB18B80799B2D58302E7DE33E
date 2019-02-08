@@ -1,0 +1,1473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<link rel="shortcut icon" href="/home/users/web/b1696/ipw.mapabili/public_html/ei8ic/images/favicon.ico"></link>
+<link rel="stylesheet" href="http://www.mapability.com/ei8ic/layersmenu-gtk2.css" type="text/css"></link>
+<link rel="stylesheet" href="http://www.mapability.com/ei8ic/stylesheet-1.css" type="text/css"></link>
+<base target="_self">
+
+<script language="JavaScript" type="text/javascript">
+<!--
+// PHP Layers Menu 3.2.0-rc (C) 2001-2004 Marco Pratesi - http://www.marcopratesi.it/
+
+DOM = (document.getElementById) ? 1 : 0;
+NS4 = (document.layers) ? 1 : 0;
+// We need to explicitly detect Konqueror
+// because Konqueror 3 sets IE = 1 ... AAAAAAAAAARGHHH!!!
+Konqueror = (navigator.userAgent.indexOf('Konqueror') > -1) ? 1 : 0;
+// We need to detect Konqueror 2.2 as it does not handle the window.onresize event
+Konqueror22 = (navigator.userAgent.indexOf('Konqueror 2.2') > -1 || navigator.userAgent.indexOf('Konqueror/2.2') > -1) ? 1 : 0;
+Konqueror30 =
+	(
+		navigator.userAgent.indexOf('Konqueror 3.0') > -1
+		|| navigator.userAgent.indexOf('Konqueror/3.0') > -1
+		|| navigator.userAgent.indexOf('Konqueror 3;') > -1
+		|| navigator.userAgent.indexOf('Konqueror/3;') > -1
+		|| navigator.userAgent.indexOf('Konqueror 3)') > -1
+		|| navigator.userAgent.indexOf('Konqueror/3)') > -1
+	)
+	? 1 : 0;
+Konqueror31 = (navigator.userAgent.indexOf('Konqueror 3.1') > -1 || navigator.userAgent.indexOf('Konqueror/3.1') > -1) ? 1 : 0;
+// We need to detect Konqueror 3.2 and 3.3 as they are affected by the see-through effect only for 2 form elements
+Konqueror32 = (navigator.userAgent.indexOf('Konqueror 3.2') > -1 || navigator.userAgent.indexOf('Konqueror/3.2') > -1) ? 1 : 0;
+Konqueror33 = (navigator.userAgent.indexOf('Konqueror 3.3') > -1 || navigator.userAgent.indexOf('Konqueror/3.3') > -1) ? 1 : 0;
+Opera = (navigator.userAgent.indexOf('Opera') > -1) ? 1 : 0;
+Opera5 = (navigator.userAgent.indexOf('Opera 5') > -1 || navigator.userAgent.indexOf('Opera/5') > -1) ? 1 : 0;
+Opera6 = (navigator.userAgent.indexOf('Opera 6') > -1 || navigator.userAgent.indexOf('Opera/6') > -1) ? 1 : 0;
+Opera56 = Opera5 || Opera6;
+IE = (navigator.userAgent.indexOf('MSIE') > -1) ? 1 : 0;
+IE = IE && !Opera;
+IE5 = IE && DOM;
+IE4 = (document.all) ? 1 : 0;
+IE4 = IE4 && IE && !DOM;
+
+// -->
+</script>
+<script language="JavaScript" type="text/javascript" src="http://www.mapability.com/ei8ic/libjs/layersmenu-library.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www.mapability.com/ei8ic/libjs/layersmenu.js"></script>
+
+<!-- beginning of menu header - PHP Layers Menu 3.2.0-rc (C) 2001-2004 Marco Pratesi - http://www.marcopratesi.it/ -->
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+menuTopShift = 6;
+menuRightShift = 7;
+menuLeftShift = 2;
+
+var thresholdY = 5;
+var abscissaStep = 140;
+
+toBeHidden = new Array();
+toBeHiddenLeft = new Array();
+toBeHiddenTop = new Array();
+
+listl = ['L1','L6','L13','L15','L24','L41','L53','L61','L68','L79','L86','L91','L97','L103','L124','L144','L151','L158','L162','L184'];
+var numl = listl.length;
+
+father = new Array();
+for (i=1; i<=193; i++) {
+	father['L' + i] = '';
+}
+father_keys = ['L2','L3','L4','L5','L6','L7','L8','L9','L10','L11','L12','L14','L15','L16','L17','L18','L19','L20','L21','L22','L23','L24','L25','L26','L27','L28','L29','L30','L31','L32','L33','L34','L35','L36','L37','L38','L39','L40','L41','L42','L43','L44','L45','L46','L47','L48','L49','L50','L51','L52','L53','L54','L55','L56','L57','L58','L59','L60','L61','L62','L63','L64','L65','L66','L67','L68','L69','L70','L71','L72','L73','L74','L75','L76','L77','L78','L80','L81','L82','L83','L84','L85','L87','L88','L89','L90','L92','L93','L94','L95','L96','L97','L98','L99','L100','L101','L102','L103','L104','L105','L106','L107','L108','L109','L110','L111','L112','L113','L114','L115','L116','L117','L118','L119','L120','L121','L122','L123','L124','L125','L126','L127','L128','L129','L130','L131','L132','L133','L134','L135','L136','L137','L138','L139','L140','L141','L142','L143','L144','L145','L146','L147','L148','L149','L150','L152','L153','L154','L155','L156','L159','L160','L161','L163','L164','L165','L166','L167','L168','L169','L170','L171','L172','L173','L174','L175','L176','L177','L178','L185','L186','L187','L188','L189','L190','L191','L192'];
+father_vals = ['L1','L1','L1','L1','L1','L6','L6','L6','L6','L1','L1','L13','L13','L15','L15','L15','L15','L15','L15','L15','L15','L13','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L24','L13','L41','L41','L41','L41','L41','L41','L41','L41','L41','L41','L41','L13','L53','L53','L53','L53','L53','L53','L53','L13','L61','L61','L61','L61','L61','L61','L13','L68','L68','L68','L68','L68','L68','L68','L68','L68','L13','L79','L79','L79','L79','L79','L79','L86','L86','L86','L86','L91','L91','L91','L91','L91','L91','L97','L97','L97','L91','L91','L91','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L103','L91','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L124','L91','L144','L144','L144','L144','L144','L91','L151','L151','L151','L151','L151','L158','L158','L158','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L162','L184','L184','L184','L184','L184','L184','L184','L184'];
+for (i=0; i<father_keys.length; i++) {
+	father[father_keys[i]] = father_vals[i];
+}
+
+lwidth = new Array();
+var lwidthDetected = 0;
+
+function moveLayers()
+{
+	if (!lwidthDetected) {
+		for (i=0; i<numl; i++) {
+			lwidth[listl[i]] = getOffsetWidth(listl[i]);
+		}
+		lwidthDetected = 1;
+	}
+	if (IE4) {
+		for (i=0; i<numl; i++) {
+			setWidth(listl[i], abscissaStep);
+		}
+	}
+	var vermenu1TOP = getOffsetTop('vermenu1');
+	var vermenu1LEFT = getOffsetLeft('vermenu1');
+	var vermenu1WIDTH = getOffsetWidth('vermenu1');
+	setLeft('L1', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L13', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L79', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L86', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L91', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L151', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L158', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L162', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+	setLeft('L184', vermenu1LEFT + vermenu1WIDTH - menuRightShift);
+
+}
+
+back = new Array();
+for (i=1; i<=193; i++) {
+	back['L' + i] = 0;
+}
+
+// -->
+</script>
+
+<!-- end of menu header - PHP Layers Menu 3.2.0-rc (C) 2001-2004 Marco Pratesi - http://www.marcopratesi.it/ -->
+
+<title>A list of US states and Canadian Provinces</title>
+<meta name="description" content="This page contains a list of US states and Canadian Provinces">
+<meta name="keywords" content="contest,contesting,lf,hf,radio,amateur,ham,us,usa,states,canada,province,list">
+<meta name="ROBOTS" content="ALL">
+<meta name="REVISIT-AFTER" content="30 days">
+<meta name="GENERATOR" content="HTML-Kit Version 1.0 (Build 292)">
+<meta name="FORMATTER" content="HTML-Kit Version 1.0 (Build 292)">
+<meta name="AUTHOR" content="Tim Makins EI8IC www.mapability.com">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="8" cellspacing="0">
+<tr><td valign="top">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td><img src="http://www.mapability.com/ei8ic/images/spacer.gif" width="1" height="4" alt="" border="0" /></td></tr>
+<tr><td><a href="http://www.mapability.com/ei8ic/index.php"><img alt="EI8IC Home" src="http://www.mapability.com/ei8ic/images/logo.gif" height="80" width="100" border="0" /></a></td></tr>
+<tr><td><img src="http://www.mapability.com/ei8ic/images/spacer.gif" width="1" height="4" alt="" border="0" /></td></tr>
+<tr><td><!-- beginning of vertical menu bar -->
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div id="vermenu1" class="verbar" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<div id="refL1" class="item">
+<a href="http://www.mapability.com/ei8ic/station/station.php" onmouseover="moveLayerX('L1') ; moveLayerY('L1') ; LMPopUp('L1', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />My Ham Station&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL13" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/contest.php" onmouseover="moveLayerX('L13') ; moveLayerY('L13') ; LMPopUp('L13', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />HF Contesting&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL79" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/intro.php" onmouseover="moveLayerX('L79') ; moveLayerY('L79') ; LMPopUp('L79', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Overlay Mapper&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL86" class="item">
+<a href="http://www.mapability.com/ei8ic/vkcallbook/index.php" onmouseover="moveLayerX('L86') ; moveLayerY('L86') ; LMPopUp('L86', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />VK Callbook&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL91" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/maps.php" onmouseover="moveLayerX('L91') ; moveLayerY('L91') ; LMPopUp('L91', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ham Maps &nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL151" class="item">
+<a href="http://www.mapability.com/ei8ic/aprs/index.php" onmouseover="moveLayerX('L151') ; moveLayerY('L151') ; LMPopUp('L151', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />APRS Maps&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL157" class="item">
+<a href="http://www.mapability.com/ei8ic/logview/index.php" onmouseover="shutdown();" target="_blank"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />LogView&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL158" class="item">
+<a href="http://www.mapability.com/ei8ic/iota/index.php" onmouseover="moveLayerX('L158') ; moveLayerY('L158') ; LMPopUp('L158', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />IOTA&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL162" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/index.php" onmouseover="moveLayerX('L162') ; moveLayerY('L162') ; LMPopUp('L162', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Rhombics&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL179" class="item">
+<a href="http://www.mapability.com/ei8ic/download/flags.php" onmouseover="shutdown();" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL180" class="item">
+<a href="http://www.mapability.com/ei8ic/download/download.php" onmouseover="shutdown();" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Downloads&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL181" class="item">
+<a href="http://www.mapability.com/ei8ic/sitemap.php" onmouseover="shutdown();" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Sitemap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL182" class="item">
+<a href="http://www.mapability.com/ei8ic/new.php" onmouseover="shutdown();" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Whats NEW ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL183" class="item">
+<a href="http://www.mapability.com/ei8ic/contact.php" onmouseover="shutdown();" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Contact EI8IC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL184" class="item">
+<a href="#" onmouseover="moveLayerX('L184') ; moveLayerY('L184') ; LMPopUp('L184', false);"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Archives&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL193" class="item">
+<a href="http://www.mapability.com/ei8ic/privacy.php" onmouseover="shutdown();" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Privacy Policy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<!-- end of vertical menu bar -->
+</td></tr>
+<tr><td><img src="http://www.mapability.com/ei8ic/images/spacer.gif" width="1" height="4" alt="" border="0" /></td></tr>
+<tr><td>
+<a href="javascript:void(0)" 
+onclick="window.open('http://pub37.bravenet.com/guestmap/show.php?usernum=3149097721&lightmap=0&icons=0&&entrylist=0&zoom=0&welcome=1','bnetguestmap','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=720,height=470,top=110,left=110')">
+<img src="http://www.mapability.com/ei8ic/images/guestmap1.gif" width="100" height="58" alt="Click here to view my GuestMap. You can leave your callsign and comments, too !" border="0" /></a>
+</td></tr>
+</table></td>
+<td valign="top">
+<table cellspacing="0" cellpadding="3" width="580" border="0">
+<tr><td valign=top bgcolor="#000000">
+<table cellspacing="0" cellpadding="3" width="100%" border="0">
+<tr bgcolor="#e5e5e5"><td width="100%">
+<table cellspacing="3" cellpadding="10" width="100%" border="0"><!-- Page Content Here -->
+
+<tr>
+<td bgcolor="#e5e5e5"><img src="../images/spacer.gif" width="180" height="1" alt=""></td>
+<td bgcolor="#808080">
+<strong><font size="5">US States/VE Provinces</font></strong><br>
+
+<font color="#a0a0a0"><a href="../index.php" class="title_link">Home</a> &gt; <a href="contest.php" class="title_link">HF Contesting</a> &gt; <a href="resource.php" class="title_link">Contest Resources</a> &gt; <a href="states.php" class="title_link">US States/VE Provinces</a></font></td></tr>
+
+<tr bgcolor="#fffffe">
+<td bgcolor="#e5e5e5"><img src="../images/spacer.gif" width="180" height="1" alt=""></td>
+<td valign="top" align="left" bgcolor="#e5e5e5">
+<font face="Arial,Helvetica,Geneva" size="1">
+• This page contains a list of US states and Canadian Provinces.
+</font></td></tr>
+
+<tr bgcolor="#fffffe"><!-- main text area -->
+<td colspan="2" height="400">
+<u><strong>States of the United States of America:</strong></u><br>
+<table cellspacing="3" cellpadding="2" width="100%" border="0">
+<tr><td>AL</td><td>Alabama</td><td>&nbsp;</td><td>AK</td><td>Alaska</td><td>&nbsp;</td><td>AZ</td><td>Arizona</td></tr>
+<tr><td>AR</td><td>Arkansas</td><td>&nbsp;</td><td>CA</td><td>California</td><td>&nbsp;</td><td>CO</td><td>Colorado</td></tr>
+<tr><td>CT</td><td>Connecticut</td><td>&nbsp;</td><td>DC</td><td>Dist. Columbia</td><td>&nbsp;</td><td>DE</td><td>Delaware</td></tr>
+<tr><td>FL</td><td>Florida</td><td>&nbsp;</td><td>GA</td><td>Georgia</td><td>&nbsp;</td><td>HI</td><td>Hawaii</td></tr>
+<tr><td>ID</td><td>Idaho</td><td>&nbsp;</td><td>IL</td><td>Illinois</td><td>&nbsp;</td><td>IN</td><td>Indiana</td></tr>
+<tr><td>IA</td><td>Iowa</td><td>&nbsp;</td><td>KS</td><td>Kansas</td><td>&nbsp;</td><td>KY</td><td>Kentucky</td></tr>
+<tr><td>LA</td><td>Louisiana</td><td>&nbsp;</td><td>ME</td><td>Maine</td><td>&nbsp;</td><td>MD</td><td>Maryland</td></tr>
+<tr><td>MA</td><td>Massachusetts</td><td>&nbsp;</td><td>MI</td><td>Michigan</td><td>&nbsp;</td><td>MN</td><td>Minnesota</td></tr>
+<tr><td>MS</td><td>Mississippi</td><td>&nbsp;</td><td>MO</td><td>Missouri</td><td>&nbsp;</td><td>MT</td><td>Montana</td></tr>
+<tr><td>NE</td><td>Nebraska</td><td>&nbsp;</td><td>NV</td><td>Nevada</td><td>&nbsp;</td><td>NH</td><td>New Hampshire</td></tr>
+<tr><td>NJ</td><td>New Jersey</td><td>&nbsp;</td><td>NM</td><td>New Mexico</td><td>&nbsp;</td><td>NY</td><td>New York</td></tr>
+<tr><td>NC</td><td>North Carolina</td><td>&nbsp;</td><td>ND</td><td>North Dakota</td><td>&nbsp;</td><td>OH</td><td>Ohio</td></tr>
+<tr><td>OK</td><td>Oklahoma</td><td>&nbsp;</td><td>OR</td><td>Oregon</td><td>&nbsp;</td><td>PA</td><td>Pennsylvania</td></tr>
+<tr><td>RI</td><td>Rhode Island</td><td>&nbsp;</td><td>SC</td><td>South Carolina</td><td>&nbsp;</td><td>SD</td><td>South Dakota</td></tr>
+<tr><td>TN</td><td>Tennessee</td><td>&nbsp;</td><td>TX</td><td>Texas</td><td>&nbsp;</td><td>UT</td><td>Utah</td></tr>
+<tr><td>VT</td><td>Vermont</td><td>&nbsp;</td><td>VA</td><td>Virginia</td><td>&nbsp;</td><td>WA</td><td>Washington</td></tr>
+<tr><td>WV</td><td>West Virginia</td><td>&nbsp;</td><td>WI</td><td>Wisconsin</td><td>&nbsp;</td><td>WY</td><td>Wyoming</td></tr>
+</table><br>&nbsp;<br>
+<u><strong>Provinces of Canada:</strong></u><br>
+<table cellspacing="3" cellpadding="2" width="100%" border="0">	
+<tr><td>AB</td><td>Alberta</td><td>&nbsp;</td><td>BC</td><td>British Columbia</td></tr>
+<tr><td>LB</td><td>Labrador</td><td>&nbsp;</td><td>MB</td><td>Manitoba</td></tr>
+<tr><td>NB</td><td>New Brunswick</td><td>&nbsp;</td><td>NF</td><td>Newfoundland</td></tr>
+<tr><td>NS</td><td>Nova Scotia</td><td>&nbsp;</td><td>NU</td><td>Nunavut</td></tr>
+<tr><td>NW</td><td>North West Terr.</td><td>&nbsp;</td><td>ON</td><td>Ontario</td></tr>
+<tr><td>PE</td><td>Prince Edward Is.</td><td>&nbsp;</td><td>QC</td><td>Quebec</td></tr>
+<tr><td>SK</td><td>Saskatchewen</td><td>&nbsp;</td><td>YU</td><td>Yukon</td></tr>
+</table>
+
+<p>For maps, lists, and many more resources covering the USA and Canada, try a FREE download of <a href="../naomi/intro.php">NAOMI</a>, the North American Overlay Mapper.</p>
+
+</td></tr>
+
+<!-- End of Page Content -->
+
+</table></td></tr></table></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td width="100%" bgcolor="#999999" colspan="2"><table cellpadding="20" width="100%">
+<tr bgcolor="#666680"><td valign="middle" align="right"><font face=Arial color="#cccccc" size="1">web design by www.mapability.com ---  Irish and international copyright © 2000 - 
+2019</font></td></tr></table></td></tr></table>
+</td></tr></table>
+
+<!-- beginning of menu footer - PHP Layers Menu 3.2.0-rc (C) 2001-2004 Marco Pratesi - http://www.marcopratesi.it/ -->
+
+
+<div id="L1" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL2" class="item">
+<a href="http://www.mapability.com/ei8ic/station/me.php" onmouseover="LMPopUp('L1', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />All About Me&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL3" class="item">
+<a href="http://www.mapability.com/ei8ic/station/myshack.php" onmouseover="LMPopUp('L1', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />My Ham Shack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL4" class="item">
+<a href="http://www.mapability.com/ei8ic/station/myants.php" onmouseover="LMPopUp('L1', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />My Antenna Farm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL5" class="item">
+<a href="http://www.mapability.com/ei8ic/station/mylogs.php" onmouseover="LMPopUp('L1', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />My Log Books&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL6" class="item">
+<a href="http://www.mapability.com/ei8ic/archive/archive.php" onmouseover="moveLayerX('L6') ; moveLayerY('L6') ; LMPopUp('L6', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Photo Gallery&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL11" class="item">
+<a href="http://www.mapability.com/ei8ic/irish/counties.php" onmouseover="LMPopUp('L1', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Facts About Ireland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL12" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/eicounty.php" onmouseover="LMPopUp('L1', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Irish Counties&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L6" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL7" class="item">
+<a href="http://www.mapability.com/ei8ic/archive/archive.php" onmouseover="LMPopUp('L6', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL8" class="item">
+<a href="http://www.mapability.com/ei8ic/archive/myqsls.php" onmouseover="LMPopUp('L6', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />EI8IC QSL Cards&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL9" class="item">
+<a href="http://www.mapability.com/ei8ic/archive/sligo.php" onmouseover="LMPopUp('L6', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Sligo Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL10" class="item">
+<a href="http://www.mapability.com/ei8ic/archive/nfd79-01.php" onmouseover="LMPopUp('L6', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />1979 NFD G3GHN/P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L13" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL14" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/contest.php" onmouseover="LMPopUp('L13', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL15" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget.php" onmouseover="moveLayerX('L15') ; moveLayerY('L15') ; LMPopUp('L15', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Budget Fun&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL24" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/tintro.php" onmouseover="moveLayerX('L24') ; moveLayerY('L24') ; LMPopUp('L24', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Tips and Techniques&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL41" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/resource.php" onmouseover="moveLayerX('L41') ; moveLayerY('L41') ; LMPopUp('L41', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Contest Resources&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL53" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plans.php" onmouseover="moveLayerX('L53') ; moveLayerY('L53') ; LMPopUp('L53', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Contest Bandplans&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL61" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/hintro.php" onmouseover="moveLayerX('L61') ; moveLayerY('L61') ; LMPopUp('L61', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Hardware Notes&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL68" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/writeup.php" onmouseover="moveLayerX('L68') ; moveLayerY('L68') ; LMPopUp('L68', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Big-Gun Writeups&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL78" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/record.php" onmouseover="LMPopUp('L13', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Record Contesters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L15" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL16" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL17" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-1.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Antennas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL18" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-2.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Masts and Towers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL19" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-3.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Receivers and Transmitters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL20" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-4.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Computers and Information&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL21" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-5.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Shack Furniture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL22" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-6.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Power Supplies&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL23" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/budget-7.php" onmouseover="LMPopUp('L15', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Auxiliary Items&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L24" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL25" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/tintro.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL26" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/cfaq.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Beginner's FAQs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL27" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/tips.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />General Contest Tips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL28" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/plan.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Planning a Contest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL29" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/compete.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />How to be Competitive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL30" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/operate.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Contest Operating Tips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL31" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/k1ar.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />K1AR Contest Tips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL32" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/sandp.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />How to Search & Pounce&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL33" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/48hrs.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Surviving 48 Hours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL34" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/80m.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Contesting on 80m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL35" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/160m.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Contesting on 160m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL36" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/lolprof.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Low-Profile Contesting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL37" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/msingle.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Multi-Single Setups&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL38" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/ppileup.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Handling Packet-Pileups&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL39" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/2radio.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Two-Radio Layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL40" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/tosign.php" onmouseover="LMPopUp('L24', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />When to Sign Your Call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L41" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL42" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/resource.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL43" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/list.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Pre-Contest Checklist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL44" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/cqz.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />CQ Zone List&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL45" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/bypre.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />China Prefixes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL46" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/topband.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Topband Allocations&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL47" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/frdep.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />French Departments&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL48" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/eicounty.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Irish Counties&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL49" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/itprov.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Italian Provinces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL50" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/japref.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Japanese Prefectures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL51" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/swcanton.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Swiss Cantons&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL52" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/states.php" onmouseover="LMPopUp('L41', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />US States/VE Provinces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L53" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL54" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plans.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL55" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plan-1.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />160m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL56" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plan-2.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />80m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL57" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plan-3.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />40m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL58" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plan-4.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />20m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL59" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plan-5.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />15m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL60" class="item">
+<a href="http://www.mapability.com/ei8ic/download/plan-6.php" onmouseover="LMPopUp('L53', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />10m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L61" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL62" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/hintro.php" onmouseover="LMPopUp('L61', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL63" class="item">
+<a href="http://www.mapability.com/ei8ic/download/acalc.php" onmouseover="LMPopUp('L61', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Antenna Calculator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL64" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/cable.php" onmouseover="LMPopUp('L61', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Coaxial Cable Notes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL65" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/wire.php" onmouseover="LMPopUp('L61', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Wiring Your Shack&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL66" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/rope.php" onmouseover="LMPopUp('L61', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />All About Rope&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL67" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/mistake.php" onmouseover="LMPopUp('L61', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Tower Mistakes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L68" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL69" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/writeup.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL70" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/k5zd.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />K5ZD in CQWW CW 2000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL71" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/ki1g.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />KI1G in ARRL DX CW 2001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL72" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/km1p.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />KM1P in ARRL DX SSB 2001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL73" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/lz8t.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />LZ8T in CQWW 160m CW 2001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL74" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/n2ic.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />N2IC in CQWW CW 2000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL75" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/n2nl.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />N2NL in ARRL DX CW 2001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL76" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/n3bb.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />N3BB in ARRL DX CW 2001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL77" class="item">
+<a href="http://www.mapability.com/ei8ic/contest/w4pa.php" onmouseover="LMPopUp('L68', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />W4PA in ARRL DX CW 2001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L79" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL80" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/intro.php" onmouseover="LMPopUp('L79', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL81" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/feature.php" onmouseover="LMPopUp('L79', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Features&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL82" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/screenshots.php" onmouseover="LMPopUp('L79', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Screen Shots&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL83" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/help.php" onmouseover="LMPopUp('L79', true);" title="_blank"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Help Guide&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL84" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/download.php" onmouseover="LMPopUp('L79', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Download&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL85" class="item">
+<a href="http://www.mapability.com/ei8ic/gom/index.php" onmouseover="LMPopUp('L79', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Register&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L86" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL87" class="item">
+<a href="http://www.mapability.com/ei8ic/vkcallbook/index.php" onmouseover="LMPopUp('L86', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL88" class="item">
+<a href="http://www.mapability.com/ei8ic/vkcallbook/features.php" onmouseover="LMPopUp('L86', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Features&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL89" class="item">
+<a href="http://www.mapability.com/ei8ic/vkcallbook/screenshots.php" onmouseover="LMPopUp('L86', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Screen Shots&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL90" class="item">
+<a href="http://www.mapability.com/ei8ic/vkcallbook/help/index.html" onmouseover="LMPopUp('L86', true);" title="_blank"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Help Guide&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L91" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL92" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/maps.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL93" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/cqzone.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />CQ Zones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL94" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/ituzone.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />ITU Zones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL95" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/regions.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />ITU Regions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL96" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/sections.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />ARRL Sections&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL97" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gridloc.php" onmouseover="moveLayerX('L97') ; moveLayerY('L97') ; LMPopUp('L97', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Grid Locators&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL101" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/continent.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Continents&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL102" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/timezone.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Time Zones&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL103" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/index.php" onmouseover="moveLayerX('L103') ; moveLayerY('L103') ; LMPopUp('L103', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Prefix Maps 1&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL124" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/index.php" onmouseover="moveLayerX('L124') ; moveLayerY('L124') ; LMPopUp('L124', false);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Prefix Maps 2&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL144" class="item">
+<a href="#" onmouseover="moveLayerX('L144') ; moveLayerY('L144') ; LMPopUp('L144', false);"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Great Circle&nbsp;<img
+class="fwdarr" src="http://www.mapability.com/ei8ic/menuimages/forward-arrow.png" width="4" height="7"
+border="0" alt=">>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL150" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/lighthouse.php" onmouseover="LMPopUp('L91', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Irish Lighthouses&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L97" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL98" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gridloc.php" onmouseover="LMPopUp('L97', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL99" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gridworld.php" onmouseover="LMPopUp('L97', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />World Map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL100" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gridirl.php" onmouseover="LMPopUp('L97', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ireland Map&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L103" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL104" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/af.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Africa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL105" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/nwaf.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />West Africa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL106" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/neaf.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />East Africa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL107" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/soaf.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Southern Africa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL108" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/an.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Antarctica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL109" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/as.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Asia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL110" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/cqzas.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Asia Prefix/CQ Zone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL111" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/eaas.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />East Asia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL112" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/mide.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Middle East&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL113" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/ruse.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern Russia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL114" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/rusc.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Central Russia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL115" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/rusw.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western Russia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL116" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/soas.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />South Asia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL117" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/seas.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />South East Asia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL118" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/eu.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Europe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL119" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/emed.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern Mediterranean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL120" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/wmed.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western Mediterranean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL121" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/scan.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Scandinavia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL122" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/neeu.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern Europe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL123" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/nweu.php" onmouseover="LMPopUp('L103', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western Europe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L124" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL125" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/na.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />North America&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL126" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/cane.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern Canada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL127" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/canw.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western Canada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL128" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/usae.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL129" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/usaw.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL130" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/care.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern Caribbean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL131" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/carw.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western Caribbean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL132" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/oc.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Oceania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL133" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/ecoc.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern Oceania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL134" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/nwoc.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Northen Oceania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL135" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/swoc.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Southern Oceania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL136" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/sa.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />South America&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL137" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/sane.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Eastern S America&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL138" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/sanw.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Western S America&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL139" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/sasc.php" onmouseover="LMPopUp('L124', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Southern S America&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL140" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/china.php" onmouseover="LMPopUp('L124', true);" title="_top"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />China&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL141" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/china-j.php" onmouseover="LMPopUp('L124', true);" title="_top"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />China-Interactive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL142" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/russia.php" onmouseover="LMPopUp('L124', true);" title="_top"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Russia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL143" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/prefix/russia-j.php" onmouseover="LMPopUp('L124', true);" title="_top"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Russia-Interactive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L144" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL145" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gcm-5k0.php" onmouseover="LMPopUp('L144', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ireland 10000 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL146" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gcm-9k1.php" onmouseover="LMPopUp('L144', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ireland 18200 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL147" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gcm-10k.php" onmouseover="LMPopUp('L144', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ireland 20000 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL148" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/gcm-14k.php" onmouseover="LMPopUp('L144', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ireland 28000 km&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL149" class="item">
+<a href="http://www.mapability.com/ei8ic/maps/rotator.php" onmouseover="LMPopUp('L144', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Ireland Rotator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L151" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL152" class="item">
+<a href="http://www.mapability.com/ei8ic/aprs/index.php" onmouseover="LMPopUp('L151', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL153" class="item">
+<a href="http://www.mapability.com/ei8ic/aprs/world/world_aprs.php" onmouseover="LMPopUp('L151', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />World APRS Stations&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL154" class="item">
+<a href="http://www.mapability.com/ei8ic/aprs/findu.php" onmouseover="LMPopUp('L151', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />FindU Maps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL155" class="item">
+<a href="http://www.mapability.com/ei8ic/aprs/uiview/index.php" onmouseover="LMPopUp('L151', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />UI-View Maps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL156" class="item">
+<a href="http://www.mapability.com/ei8ic/aprs/logos/index.php" onmouseover="LMPopUp('L151', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />APRS Logos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L158" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL159" class="item">
+<a href="http://www.mapability.com/ei8ic/iota/index.php" onmouseover="LMPopUp('L158', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL160" class="item">
+<a href="http://www.mapability.com/ei8ic/iota/iota.php" onmouseover="LMPopUp('L158', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />IOTA Bearings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL161" class="item">
+<a href="http://www.mapability.com/ei8ic/iota/igmap.php" onmouseover="LMPopUp('L158', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />IOTA Group Maps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L162" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL163" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/index.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Introduction&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL164" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/rhombic.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Rhombic Home Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL165" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/pract.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Abbrev. Discussion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL166" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/text.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Detailed Design Text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL167" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/ncaec1.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />NACEC Station in MN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL168" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/chop.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />WW2 Rhombic Station&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL169" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/6amtext.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Don W6AM Handout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL170" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/vhfrhom.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />VHF and UHF Rhombics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL171" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/foreword.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Harpers Rhombic Design&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL172" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/pairs.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Phasing Pairs of Rhombics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL173" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/lightg.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Lightning Supression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL174" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/patterns.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Antenna Patterns&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL175" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/vtr600.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Rhombic Termination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL176" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/email.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Rhombic Emails&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL177" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/wullen.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Wullenweber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL178" class="item">
+<a href="http://www.mapability.com/ei8ic/rhombic/wullen1.php" onmouseover="LMPopUp('L162', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />HomeBrew Wullenweber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="L184" class="submenu" onmouseover="clearLMTO();" onmouseout="setLMTO();">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td nowrap="nowrap">
+<div class="subframe">
+<div id="refL185" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap1.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 001-100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL186" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap2.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 101-200&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL187" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap3.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 201-300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL188" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap4.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 301-400&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL189" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap5.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 401-500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL190" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap6.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 501-600&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL191" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap7.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 601-700&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+<div id="refL192" class="item">
+<a href="http://www.mapability.com/ei8ic/guestmap/guestmap8.php" onmouseover="LMPopUp('L184', true);" target="_self"><img
+align="top" src="http://www.mapability.com/ei8ic/menuimages/transparent.png" width="1" height="16" border="0"
+alt="" />Guest Map entries: 701-800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+loaded = 1;
+// -->
+</script>
+
+<!-- end of menu footer - PHP Layers Menu 3.2.0-rc (C) 2001-2004 Marco Pratesi - http://www.marcopratesi.it/ -->
+</body>
+</html>-¸‹±[‚      \@”ª\@”­?ñÄ/       3    :http://www.mapability.com/ei8ic/contest/states.php necko:classified 1 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Thu, 17 Jan 2019 14:43:55 GMT
+Content-Type: text/html
+Content-Length: 85667
+Server: Apache/2
+X-Powered-By: PHP/5.3.29
+Age: 0
+ original-response-headers Date: Thu, 17 Jan 2019 14:43:55 GMT
+Content-Type: text/html
+Content-Length: 85667
+Connection: keep-alive
+Server: Apache/2
+X-Powered-By: PHP/5.3.29
+Age: 0
+ uncompressed-len 0 net-response-time-onstart 1110 net-response-time-onstop 1203 predictor::resource-count 9 predictor::http://www.mapability.com/ei8ic/layersmenu-gtk2.css 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/stylesheet-1.css 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/libjs/layersmenu-library.js 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/libjs/layersmenu.js 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/images/spacer.gif 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/images/logo.gif 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/menuimages/transparent.png 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/menuimages/forward-arrow.png 1,1,1547736234,4097 predictor::http://www.mapability.com/ei8ic/images/guestmap1.gif 1,1,1547736234,4097  N£
